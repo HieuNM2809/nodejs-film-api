@@ -1,0 +1,13 @@
+{
+  "apps": [
+    {
+      "name": "film-api",
+      "script": "./public/index.js",
+      "watch": true,
+      "ignore_watch": ["node_modules", "public", "logs", ".git", ".idea"],
+      "exec_mode": "cluster",
+      "instances": 2,
+      "node_args": "--trace-warnings --max_old_space_size=1024"
+    }
+  ]
+}

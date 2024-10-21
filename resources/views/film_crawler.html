@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Film Crawler</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px 0;
+            font-size: 16px;
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 50%;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Welcome to the Film Crawler</h1>
+    <div class="input-group">
+        <label for="startPage">Start Page:</label>
+        <input type="number" id="startPage" name="startPage" min="1" value="1" required>
+    </div>
+    <div class="input-group">
+        <label for="pageCount">Number of Pages (default 10):</label>
+        <input type="number" id="pageCount" name="pageCount" min="1" value="10" required>
+    </div>
+    <button id="crawlButton">Crawl Films</button>
+</div>
+
+<script>
+    document.getElementById('crawlButton').addEventListener('click', function () {
+        // Lấy giá trị từ input
+        const startPage = document.getElementById('startPage').value;
+        const pageCount = document.getElementById('pageCount').value || 10;  // Mặc định 10 trang nếu không có giá trị
+
+        // Chuyển hướng tới API với các tham số page
+        window.location.href = `/crawl/phimapi?startPage=${startPage}&pageCount=${pageCount}`;
+    });
+</script>
+</body>
+</html>
